@@ -1,0 +1,4 @@
+<article class="product-card"><a class="product-photo" href="{{ url_for('product_detail', product_id=product.id) }}">
+{% if product.old_price and product.old_price > product.price %}<span class="sale-tag">SALE</span>{% endif %}
+<img src="{{ product.image_url or 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80' }}" alt="{{ product.name }}" loading="lazy"></a>
+<div class="product-info"><span class="product-category">{{ product.category }}</span><a href="{{ url_for('product_detail', product_id=product.id) }}" class="product-name">{{ product.name }}</a><div class="price-row"><strong>₹{{ "{:,}".format(product.price) }}</strong>{% if product.old_price %}<del>₹{{ "{:,}".format(product.old_price) }}</del>{% endif %}</div><a class="quick-add" href="{{ url_for('product_detail', product_id=product.id) }}">View product <span>↗</span></a></div></article>
