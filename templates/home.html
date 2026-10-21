@@ -1,0 +1,15 @@
+{% extends "base.html" %}{% block content %}
+<section class="hero">
+  <div class="hero-copy"><span class="eyebrow">THE NEW SEASON COLLECTION</span><h1>Every step.<br><em>Your style.</em></h1><p>Discover footwear made for the way you move — from everyday essentials to standout sneakers.</p><a class="btn btn-dark" href="{{ url_for('shop') }}">Shop the collection <span>↗</span></a><div class="hero-proof"><span>★★★★★</span> Made for everyday comfort</div></div>
+  <div class="hero-image"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1300&q=90" alt="Red sneaker from the ShoeStyle collection"><div class="floating-note"><small>JUST DROPPED</small><strong>Move in colour.</strong></div></div>
+</section>
+<section class="benefits"><div><span>✦</span><strong>Comfort first</strong><small>Made for all-day wear</small></div><div><span>↗</span><strong>Fresh designs</strong><small>Styles for every mood</small></div><div><span>□</span><strong>Easy shopping</strong><small>Simple checkout experience</small></div><div><span>♡</span><strong>For everyone</strong><small>Men, women & kids</small></div></section>
+<section class="section"><div class="section-heading"><div><span class="eyebrow">FIND YOUR FIT</span><h2>Shop by category</h2></div><a class="text-link" href="{{ url_for('shop') }}">View all categories ↗</a></div><div class="category-grid">
+<a class="category-card cat-men" href="{{ url_for('shop', category='Men') }}"><span>01 / MEN</span><strong>Everyday icons</strong><b>Explore ↗</b></a>
+<a class="category-card cat-women" href="{{ url_for('shop', category='Women') }}"><span>02 / WOMEN</span><strong>Made to move</strong><b>Explore ↗</b></a>
+<a class="category-card cat-kids" href="{{ url_for('shop', category='Kids') }}"><span>03 / KIDS</span><strong>Little adventures</strong><b>Explore ↗</b></a>
+</div></section>
+<section class="section section-tint"><div class="section-heading"><div><span class="eyebrow">THE PEOPLE'S PICKS</span><h2>Trending right now</h2><p>Good-looking shoes that feel as good as they look.</p></div><a class="text-link" href="{{ url_for('shop') }}">Shop all shoes ↗</a></div>
+<div class="product-grid">{% for product in products %}{% include "partials/product_card.html" %}{% else %}<p>No products yet. Add some from the admin panel.</p>{% endfor %}</div></section>
+<section class="promo"><div><span class="eyebrow">YOUR NEXT FAVOURITE PAIR</span><h2>Good days start<br>with good shoes.</h2><p>Find a pair that fits your pace and your personality.</p><a class="btn btn-light" href="{{ url_for('shop') }}">Find your pair ↗</a></div><div class="promo-art">STEP<br><span>INTO</span><br>STYLE.</div></section>
+{% endblock %}
